@@ -224,3 +224,20 @@ while (v < 5) {
   }
   console.log(`The number is: ${v}.`);
 }
+
+let reg = "“[A-Z]”"
+let letter = "a"
+
+if(reg.match(letter)){
+
+}
+//separa [D,y,l,a,n]
+// reverse  [n,a,l,y,D]
+// nalyD
+// toLowerCase
+let origin = "Dylan"
+let editO = "nalyD"
+
+if(origin === edit){
+
+}

@@ -1,0 +1,30 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.img-background{
+    background-image: url("images/apple.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    color:white;/*nombre #fff rgb  */
+    height: 50vh;
+    /* Centrar texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*  */
+}
+
+.perro{
+    background-color:pink;
+
+}
+.btn{
+    padding: 50px;
+}
+#gato{
+    color:#000
+}
