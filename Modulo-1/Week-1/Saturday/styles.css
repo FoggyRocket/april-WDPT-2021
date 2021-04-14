@@ -18,9 +18,9 @@
     /*  */
 }
 
-.perro{
+.perro > div > h2{
     background-color:pink;
-
+    font-size: 60px;
 }
 .btn{
     padding: 50px;
