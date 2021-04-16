@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+/*
+class
+ .perro{}
+ 
+ 
+ id
+ #perrito{}
+
+ */
+
+
+.gato {
+    color:#fff;
+}
+nav {
+    background-color: green;
+    margin-bottom: 10%;
+}
+
+nav ul{
+    display:flex;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 0 2%;
+}
+
+nav ul li:hover{
+    color:#fff;
+    background-color: rgba(255,255,255,.6);
+    transition: all .3s;
+}
+
+section > div{
+ background-color:green;    
+}
+
+section div {
+    background-color: red;
+}
+
+div.perrito.gato{
+    background-color: blue;
+}
+
+.primero + div, article {
+    background-color: yellow;
+}
+
+.corazon:hover{
+    width: 200px;
+    height: 200px;
+    animation:latido 2s infinite;
+}
+
+
+@keyframes latido {
+    0%{
+        transform: scale(1);
+    }
+    33%{
+        /* transform: translateY(-200px); */
+
+    }
+    66%{
+        transform: scale(2);
+        /* transform: translateY(0px);
+        transform: translateX(200px); */
+    }
+    100%{
+        transform: scale(1);
+        /* stransform: translateX(0px); */
+    }
+    
+}
