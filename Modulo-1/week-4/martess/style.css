@@ -1,4 +1,14 @@
 *{
     margin:0;
     padding: 0;
+    
 }
+
+.item {
+    display: flex;
+  }
+  
+  .item div:first-child {
+    margin-right: 2%;
+  }
+  
