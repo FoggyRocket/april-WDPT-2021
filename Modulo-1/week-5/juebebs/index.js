@@ -120,13 +120,39 @@ class Enemi{
     }
 
 }
+
+class Bullet{
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.width = 30
+        this.height = 30
+        this.image = new Image()
+        this.image.src = "https://mexicobakery.us/wp-content/uploads/2020/07/bolillo1.png"
+    }
+
+    draw(){
+        this.x +=2
+        ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
+
+    }
+
+    collision(enemy){
+        return(
+            this.x < enemy.x + enemy.width &&
+            this.x + this.width > enemy.x  &&
+            this.y < enemy.y + enemy.height &&
+            this.y + this.height > enemy.y
+        ) 
+    }
+}
 const marioImgs = [
     "https://bit.ly/2L7yH3f",
     "https://art.pixilart.com/33b1bbc23398be7.png"
 ]
 
 let enemies = []
-
+let bullets = []
 
 
 const mario = new Hero(200,286,50,50,marioImgs)
@@ -176,15 +202,45 @@ function generateEnemies(){
 }
 
 
+function  generateBullet(){
+    const bullet = new Bullet(mario.x+mario.width,mario.y)
+  
+   // if(bullets < 3){
+        console.log("mando bien")
+        bullets = [...bullets,bullet]
+   // }
+}
+
+
+
 //Dibujamos los enemigos del arreglo!!!
 
 function drawEnemies(){
-    enemies.forEach((enemy,index)=>{
+    enemies.forEach((enemy,index_enemy)=>{
         enemy.draw()
+        
+
+        bullets.forEach((bullet,index_bullet)=>{
+            console.log("me dibujo!!!",bullet)
+            bullet.draw()
+            if(bullet.collision(enemy)){
+                enemies.splice(index_enemy,1)
+                bullets.splice(index_bullet,1)
+
+            }
+            if(bullet.x+bullet.width > canvas.width){
+                bullets.splice(index_bullet,1)
+            }
+
+        })
 
     if(mario.collision(enemy)){
         console.log("Me esta tocando!!!!!!")
         gameOver()
+    }
+
+    if(enemy.x + enemy.width <= 0 ){
+        enemies.splice(index_enemy,1)
     }
     })
 }
@@ -201,8 +257,12 @@ addEventListener("keydown", (event)=>{
         mario.x += 20
     }
     //salto
-    if(event.keyCode === 32){
+    if(event.keyCode === 87){
         mario.y -= 60;
+    }
+
+    if(event.keyCode === 32){
+        generateBullet()
     }
 
     if(event.keyCode === 13){
