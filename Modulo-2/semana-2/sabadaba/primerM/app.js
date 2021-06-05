@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+//aqui importamos al modelo CAt para poder crear actualizar eliminar o simplemente leer!
+const Cat = require("./models/Cat");
 
 
 //connection
@@ -15,36 +17,22 @@ mongoose.connect("mongodb://localhost/mogoose-test",{
     console.log("Error connecting to mongo", error)
     )
 
-//Model a  manita
-
-const Cat = mongoose.model('Cat',{ name: String } );
-
-const kitty = new Cat( { name: "Venus" } );
-
-/*kitty
-    .save()
-    .then(newCat => console.log(` A new cat is created: ${newCat}`))
-    .catch( error => console.log("Error create cat", error));*/
-
-function getAllCats(){
-    Cat.find()
-    .then(allCats=> console.log(" All Cats ==>",allCats))
-    .catch(error=>console.log("All cats Error", error))
+/**
+ * creamos un nuevo gato con los siguientes datos!!
+ * @param {name:String,age:Number,raza:String} data
+ */
+function createCat(data){
+    Cat.create(data)
+    .then(catCreated => console.log(`Se creo un gato: ${catCreated}`))
+    .catch(error=>console.log("algo salio mal paps!!",error))
 }
 
 
-//getAllCats()
 
-function getCatByName(name){
-    /**
-     * name
-     * name = "perrito"
-     * { name: "perrito"}
-     */
-    console.log("ejemplo ===>", { name })
-    Cat.find( { name } )
-    .then(cat=> console.log(" cat ==>",cat))
-    .catch(error=>console.log("All cats Error", error))
+let kitty = {
+    name:"Bola de pelos",
+    raza:"Egipcio",
+    age:1
 }
 
-getCatByName("Venus")
+createCat(kitty)
