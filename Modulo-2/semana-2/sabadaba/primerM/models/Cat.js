@@ -16,7 +16,10 @@ const catSchema = new Schema({
         type:Number,
         min:1
     }
-});
+},
+//createdAt
+{timestamps:true}
+);
 
 //Esto es muy importante siempre siempre exportar!!!!!!!!
 module.exports = model("Cat",catSchema)
