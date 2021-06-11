@@ -16,7 +16,7 @@ router.post('/',(req,res)=>{
 router.get('/', function(req, res, next)/* => */ {
     //res.json({ title: 'Express' });
     Restaurant.find()
-    //populate nos rive para saber que contine el  id 
+    //populate nos sirrive para saber que contine el  id 
     .populate("_owner")
     .then(restaurant=> res.status(201).json({restaurant}))
     .catch(error => res.status(400).json(error))
