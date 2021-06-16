@@ -2,6 +2,14 @@ import React, {Component} from 'react';
 
 
 export default class Detail extends Component{
+
+
+    componentWillUnmount(){
+        console.log("ADIOSSOASODASODASODASODAOSDOASODASOD")
+         
+      }
+    
+    
     render({name}=this.props){
         return(
             <div>

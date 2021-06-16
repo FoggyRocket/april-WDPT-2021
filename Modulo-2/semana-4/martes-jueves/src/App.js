@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React,{Component} from 'react'
 /*
@@ -17,7 +16,8 @@ import { Nav, Detail } from './components'
 
 class App extends Component{
   state={
-    username:'Dylan'
+    username:'',
+    isVisible:true,
   }
 
   handleChange=(e)=>{
@@ -26,6 +26,15 @@ class App extends Component{
 
     this.setState({ username: e.target.value })
   }
+
+  componentDidUpdate(prevProps,prevState){
+    console.log("previu",prevState)
+    if(prevState.username === "Dy"){
+      this.setState({isVisible:false})
+    }
+  }
+
+
 
   render(){
     //esto es destructurando para tener el codigo un poco mas limpio
@@ -37,10 +46,12 @@ class App extends Component{
           <Nav handleChange={handleChange} />
         </header>
 
-        <Detail name={username} />
+        {this.state.isVisible && <Detail name={username} />}
       </div>
     );
   }
+
+
 
 }
 
