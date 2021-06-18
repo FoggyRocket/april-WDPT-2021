@@ -1,5 +1,5 @@
 //todas la varibales o constantes, o arreglos etc....
-
+console.log("perrro",perro)
 const canvas = document.getElementById("main");
 const ctx = canvas.getContext("2d");
 const button = document.querySelector("button");
