@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//importar mis elementos de confi
+import { BrowserRouter } from 'react-router-dom';
+import UIkit from 'uikit';
+//cosas para usar bien uikit
+import Icons from "uikit/dist/js/uikit-icons"
+import "uikit/dist/css/uikit.min.css"
+
+UIkit.use(Icons)
+//para envolver al app en las funcionalidades de react-router-dom
+        /* estoy usando () parentesis*/
+const WithRouter = ()=> (
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+)
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <WithRouter />,
   document.getElementById('root')
 );
 
