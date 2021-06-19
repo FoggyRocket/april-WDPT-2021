@@ -6,7 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require("mongoose")
-
+const cors = require("cors")
 
 //Hacer la conexion a mongoose!!
 mongoose
@@ -26,6 +26,13 @@ mongoose
 
 
 const app = express();
+
+//usamos cors despues de app = express();
+app.use(
+    cors({
+        origin:["http://localhost:3000"],
+    })
+)
 
 app.use(logger('dev'));
 app.use(express.json());
