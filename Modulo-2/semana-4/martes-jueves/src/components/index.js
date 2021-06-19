@@ -3,3 +3,4 @@
 
 export { default as Nav }    from './Nav'
 export { default as Detail } from './Detail'
+export { default as Card } from './CardCharacter'

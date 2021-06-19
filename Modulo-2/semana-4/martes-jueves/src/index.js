@@ -10,16 +10,26 @@ import reportWebVitals from './reportWebVitals';
 import UIkit from 'uikit';
 import "uikit/dist/css/uikit.min.css";
 import Icons from 'uikit/dist/js/uikit-icons';
+import { BrowserRouter }  from 'react-router-dom';
 
 UIkit.use(Icons);
 /**
  * end uikit
  */
+// usaremos router-dom
+
+const WithRouter = () => (
+  //BrowserRouter encapsula al Archivo app para poder utulizar sus props
+  // para movernos, redirect
+
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+
+);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <WithRouter/>,
   document.getElementById('root')
 );
 

@@ -11,9 +11,10 @@ export default class Detail extends Component{
     
     
     render({name}=this.props){
+        console.log(this.props)
         return(
             <div>
-                <h1>Este es mi nombre: {name} </h1>
+                <h1>Este es mi  id:{this.props.match.params.id} </h1>
             </div>
         )
     }
