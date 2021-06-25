@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const  jwt = require('jsonwebtoken')
-
+const { veryToken} = require("../utils/auth")
 /* GET users listing. */
 router.get('/', (req, res, next) =>{
   res.status(200).json({msg:"Todo ok "})
@@ -100,6 +100,27 @@ router.post('/login', (req,res)=>{
   })
  
 })
+
+
+router.post("/logout",(req,res)=>{
+  //tengo que borrar las cookies
+  res.clearCookie("token").json({msg:"vuelve pronto"})
+})
+
+
+
+router.get("/List",veryToken,(req,res)=>{
+
+  User.find()
+  .then(list=>{
+    res.status(200).json({list})
+  })
+  .catch(error=>{
+    res.status(400).json({msg:"Hubo un error",error})
+  })
+})
+
+
 
 
 
