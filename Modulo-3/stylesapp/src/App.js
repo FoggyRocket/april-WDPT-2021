@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, Input, InputNumber, Button,  Modal } from 'antd';
 import valids from './valids'
 import './App.css';
+import AppStyled from './AppStyled';
 
 function App() {
   const [modalVisble,setModaVisible] = useState(false)
@@ -61,6 +62,7 @@ function App() {
   };
   return (
     <div className="App">
+        <AppStyled/>
         {/* Aqui va un formulario para registro */}
         
         <Form  {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
