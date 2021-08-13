@@ -17,3 +17,5 @@ router.get("/logout",logoutProcess)
 router.get("/confirm/:confirmationCode",getCurrentUser)
 
 router.get("/current-user",getCurrentUser)
+
+module.exports = router;

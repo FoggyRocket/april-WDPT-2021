@@ -10,6 +10,7 @@ const userSchema = new Schema({
         required:true,
     },
     status:{
+        type:String,
         enum:["Pending","Active"],
         default:"Pending"
     },
